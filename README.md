@@ -25,15 +25,19 @@ The endpoints are declared and implemented in the tile app using DRF generic vie
 
 # What has been done in the frontend
 
-The tutorial project `phonecatApp` has been taken as the starting point 
-The router exposes the component architecture
-The service and other constants are developed in the core.tile module
+The tutorial project `phonecatApp` has been taken as the starting point.
+
+The router exposes the component architecture.
+
+The service and other constants are developed in the core.tile module.
+
 The controller is developed in the main component "tile-list"
 
 
 # What is missing
 
 The code has not been incapsulated in more components i.e. `<task></task>` and `<tile></tile>`
+
 The test suite is configured but tests need more dev time.
 
 
