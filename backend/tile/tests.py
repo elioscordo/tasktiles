@@ -17,7 +17,7 @@ class TileTestCase(APITestCase):
         request = self.client.get('/api/tiles/tiles', format='json')
 
         self.assertEqual(len(request.data), 2)
-        self.assertEqual(request.data[0]["id"], self.tile2.id)
+        self.assertEqual(request.data[0]["id"], self.tile1.id)
 
     def test_get_tiles_filter_from(self):
         request = self.client.get('/api/tiles/tiles', {"from": self.in_one_year}, format='json')
@@ -61,7 +61,7 @@ class TaskTestCase(APITestCase):
         request = self.client.get('/api/tiles/tiles', format='json')
 
         self.assertEqual(len(request.data), 1)
-        self.assertEqual(len(request.data[0]["task_set"]), 1)
+        self.assertEqual(len(request.data[0]["task_set"]), 2)
 
     def test_create_task(self):
         post_data = {"title": "t3", "body": "b3", "type": "t3", "order": "1", "tile": self.tile.id}
