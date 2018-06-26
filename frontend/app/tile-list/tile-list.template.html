@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <h1>Get organized using tiles.</h1>
+    <div>Filter:</div>
+      <formly-form model="filter" fields="$ctrl.filterFields">
+          <button type="submit" class="btn btn-default btn-small" ng-click="$ctrl.filterTiles(filter)">Search</button>
+        </formly-form>
+  </div>
+  <div class="row">
+    <div class="row">
+
+      <div ng-repeat="tile in tiles" class="col-sm-3">
+        <!--Body content-->
+        <div class="card">
+          <div class="card-tile">
+            <h3>Tile {{tile.id}}</h3>
+          </div>
+          <div class="card-body">
+            <formly-form model="tile" fields="$ctrl.tileFields">
+              <div ng-repeat="task in tile.task_set">
+              <div>
+                
+                  <table class="table">
+                      <tbody>
+                      <tr>
+                        <td>
+                          {{task.title}}</td>
+                        <td><a ng-click="$ctrl.deleteTask(task)">remove</a></td>
+                        <td> <a ng-click="$ctrl.focusTask(tile,task)">edit</a></td>
+                        </tr>
+                        </tbody>
+                  </table>
+                    <div ng-if="tile.focusTaskId===task.id">  
+                        <br/>       
+                        <fieldset>  
+                            <label>Edit Task</label>
+                      <formly-form model="task" fields="$ctrl.taskFields">
+                          <button type="submit" class="btn btn-default btn-small" ng-click="$ctrl.updateTask(task)">Edit Task</button>
+                        </formly-form>
+                      </fieldset>
+                      <br/>
+                  </div>  
+
+              </div>
+              </div>
+            
+              <button type="submit" class="btn btn-default" ng-click="$ctrl.updateTile(tile)">Edit</button>
+              <button type="submit" class="btn btn-default" ng-click="$ctrl.deleteTile(tile)">Delete</button>
+              <button type="submit" class="btn btn-default" ng-click="$ctrl.addTask(tile)">+Task</button>
+              <div ng-if="tile.createTask">      
+                <br/>
+                <fieldset>
+                  <label>Create Task</label>
+                <formly-form model="tile.newTask" fields="$ctrl.taskFields">
+                    <button type="submit" class="btn btn-default btn-small pull-right" ng-click="$ctrl.createTask(tile,tile.newTask)">Create Task</button>
+                </formly-form>
+              </fieldset>
+              </div>
+            </formly-form>
+
+          </div>
+        </div>
+      </div><!-- End repeat-->
+      <div class="col-sm-3">
+      <div class="card" >
+          <div class="card-tile">
+              <h3>+ Tile</h3>
+            </div>
+          <div class="card-body">
+  
+        <formly-form model="$ctrl.newTile" fields="$ctrl.tileFields">
+            <button type="submit" class="btn btn-default" ng-click="$ctrl.createTile($ctrl.newTile)">Create</button>
+            <button type="submit" class="btn btn-default" ng-click="$ctrl.addTaskNewTile()">+Task</button>
+            <div ng-if="$ctrl.displayCreateTask == true">     
+                <fieldset> <label>Create Task</label>
+                  <formly-form model="$ctrl.newTask" fields="$ctrl.taskFields">
+                      <button type="submit" class="btn btn-default  btn-small pull-right" ng-click="$ctrl.createTask($ctrl.newTile,$ctrl.newTask)">Create Task</button>
+                  </formly-form></fieldset>
+            </div>
+        </formly-form>
+  
+      </div>
+      </div><!-- card-->
+      </div> <!-- col-sm-2 -->
+    </div>
+
+    </div>
+
+  </div>
+</div>
+</div>

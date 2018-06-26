@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="taskTilesApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Tiles</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+   
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/api-check/dist/api-check.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/tile/constants.js"></script>
+    <script src="core/tile/tile.module.js"></script>
+    <script src="core/tile/tile.service.js"></script>
+    <script src="tile-list/tile-list.module.js"></script>
+    <script src="tile-list/tile-list.component.js"></script>
+  </head>
+  <body>
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+  </body>
+</html>
